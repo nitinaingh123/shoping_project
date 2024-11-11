@@ -1,0 +1,609 @@
+/* General styling */
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transition: backdrop-filter 0.3s ease;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: rgba(255, 255, 255, 0.8);
+    /* Semi-transparent background */
+    backdrop-filter: blur(5px);
+    /* Blur effect */
+}
+
+nav.scrolled {
+    background: rgba(255, 255, 255, 0.9);
+    /* Less transparent on scroll */
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    margin-left: 1rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1rem;
+}
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    background: #333;
+    height: 3px;
+    width: 25px;
+    margin: 3px 0;
+}
+
+
+/* Responsive styling */
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        background: rgba(255, 255, 255, 0.8);
+        width: 200px;
+        border-radius: 5px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    .nav-links.active {
+        display: flex;
+    }
+    .menu-toggle {
+        display: flex;
+    }
+    .nav-links a {
+        padding: 10px;
+    }
+}
+
+
+/* Main content styling */
+
+main {
+    padding-top: 70px;
+    /* To prevent content from hiding under the fixed navbar */
+}
+
+section {
+    padding: 20px;
+    margin: 20px 0;
+}
+
+h1 {
+    margin-top: 0;
+}
+
+.slider {
+    width: 100%;
+    max-width: 700px;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+}
+
+.slides {
+    display: flex;
+    width: 300%;
+    /* Adjust this based on the number of slides */
+    animation: slide 20s infinite;
+}
+
+.slide {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    perspective: 100px;
+    /* Each slide takes full width of the slider */
+    flex-shrink: 0;
+}
+
+img {
+    width: 110%;
+    height: 60%;
+    display: block;
+}
+
+@keyframes slide {
+    0% {
+        transform: translateX(0%);
+    }
+    33% {
+        transform: translateX(-100%);
+    }
+    66% {
+        transform: translateX(-200%);
+    }
+    100% {
+        transform: translateX(calc(-250px*9));
+    }
+}
+
+
+/* styles.css */
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    /* Allows cards to wrap to the next row if needed */
+    gap: 10px;
+    /* Space between cards */
+    padding: 20px;
+    /* Padding around the container */
+}
+
+.card1 {
+    flex: 1 1 calc(25% - 20px);
+    /* 4 cards in a row with some spacing */
+    box-sizing: border-box;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 19px;
+    overflow: hidden;
+    box-shadow: 0 4px 9px rgba(0, 0, 0, 0.1);
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.card-content {
+    padding: 15px;
+}
+
+.card-content h3 {
+    margin-top: 0;
+    font-size: 1.2em;
+}
+
+.card-content p {
+    margin: 0;
+    color: #555;
+}
+
+@media (max-width:412px) {
+    .card {
+        flex: 1 1 calc(0% - 20px);
+        /* 2 cards in a row on medium screens */
+    }
+}
+
+@media (max-width: 412px) {
+    .card {
+        flex: 1 1 20%;
+        /* 1 card in a row on small screens */
+    }
+}
+
+.shop-category {
+    font-family: 'Arial', sans-serif;
+    /* Change the font-family as needed */
+    color: #050505;
+    margin-left: 40%;
+    box-shadow: #333;
+}
+
+
+/* General container styles */
+
+.container1 {
+    text-align: center;
+    padding: 20px;
+}
+
+
+/* Font styles for headers */
+
+.fontHead h2 {
+    font-size: 5em;
+    margin-bottom: 20px;
+}
+
+
+/* Flex container for the items */
+
+.container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+
+/* Styles for individual container items */
+
+.container div {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 23%;
+    margin: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Image styling */
+
+.container img {
+    width: 100%;
+    height: auto;
+}
+
+.container img:hover {
+    transform: scale(1.1);
+}
+
+
+/* Responsive adjustments */
+
+@media (max-width:600px) {
+    .container div {
+        width: 30%;
+    }
+}
+
+@media (max-width: 700px) {
+    .container div {
+        width: 45%;
+    }
+}
+
+@media (max-width: 1500px) {
+    .container div {
+        width: 20%;
+    }
+    .fontHead h2 {
+        font-size: 6em;
+    }
+}
+
+@media (max-width: 800px) {
+    .fontHead h2 {
+        font-size: 2em;
+    }
+}
+
+
+/* styles.css */
+
+
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.carousel-container3 {
+    position: relative;
+    width: 80%;
+    max-width: 1200px;
+    margin: auto;
+    overflow: hidden;
+}
+
+.carousel3 {
+    display: flex;
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel-inner3 {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.card3 {
+    min-width: 200px;
+    margin: 10px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card3 img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.card3:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+    .card3 {
+        min-width: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+    .card3 {
+        min-width: 200px;
+    }
+}
+
+
+/* styles.css */
+
+
+/* Ensure carousel items fit the screen on smaller devices */
+
+.carousel {
+    margin: 50px auto;
+    padding: 0 70px;
+}
+
+.carousel .thumb-wrapper {
+    padding: 25px 15px;
+    background: #fff;
+    border-radius: 6px;
+    text-align: center;
+    position: relative;
+}
+
+.carousel .item .img-box {
+    height: 120px;
+    margin-bottom: 20px;
+    width: 100%;
+    position: relative;
+}
+
+.carousel .item .img-box :hover {
+    transform: scale(1.2);
+}
+
+.carousel .item img {
+    max-width: 100%;
+    max-height: 100%;
+    display: inline-block;
+    position: absolute;
+    bottom: 0;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+}
+
+.carousel .item h4 {
+    font-size: 18px;
+}
+
+.carousel .item h4,
+.carousel .item p,
+.carousel .item ul {
+    margin-bottom: 5px;
+}
+
+.carousel .thumb-content .btn {
+    color: #7ac400;
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: bold;
+    background: none;
+    border: 1px solid #7ac400;
+    padding: 6px 14px;
+    margin-top: 5px;
+    line-height: 16px;
+    border-radius: 20px;
+}
+
+.carousel .thumb-content .btn:hover,
+.carousel .thumb-content .btn:focus {
+    color: #fff;
+    background: #7ac400;
+    box-shadow: none;
+}
+
+.carousel .thumb-content .btn i {
+    font-size: 14px;
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+.carousel .item-price {
+    font-size: 13px;
+    padding: 2px 0;
+}
+
+.carousel .item-price strike {
+    opacity: 0.7;
+    margin-right: 5px;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    height: 44px;
+    width: 40px;
+    background: #7ac400;
+    margin: auto 0;
+    border-radius: 4px;
+    opacity: 0.8;
+}
+
+.carousel .wish-icon {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    z-index: 99;
+    cursor: pointer;
+    font-size: 16px;
+    color: #abb0b8;
+}
+
+.carousel .wish-icon .fa-heart {
+    color: #ff6161;
+}
+
+.star-rating li {
+    padding: 0;
+}
+
+.star-rating i {
+    font-size: 14px;
+    color: #ffc000;
+}
+
+.carousel-inner {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.carousel-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.carousel-item img {
+    max-width: 100%;
+    height: auto;
+}
+
+.thumb-wrapper {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.thumb-content {
+    padding: 15px;
+}
+
+.item-price {
+    margin: 10px 0;
+}
+
+@media (max-width: 867px) {
+    .thumb-wrapper {
+        margin: 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    .carousel-item {
+        flex-direction: column;
+    }
+    .col-sm-9,
+    .col-md-7,
+    .col-lg-4 {
+        flex: 0 0 400%;
+        max-width: 100%;
+    }
+}
+
+
+/* Default font size for larger screens */
+
+.title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    color: rgba(255, 255, 255, 1);
+    text-align: center;
+    text-transform: capitalize;
+    background: rgba(72, 136, 123, 1);
+    border-width: 0px;
+    padding: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    position: relative;
+    line-height: 1.2;
+    margin: 0;
+}
+
+.title {
+    font-size: 22px;
+    padding: 5px;
+}
+
+
+/* Adjustments for medium-sized screens */
+
+@media (max-width: 792px) {
+    .title {
+        font-size: 18px;
+        padding: 4px;
+    }
+}
+
+
+/* Adjustments for small screens */
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 16px;
+        padding: 3px;
+    }
+}
+
+
+/* Adjustments for extra-small screens */
+
+@media (max-width: 576px) {
+    .title {
+        font-size: 14px;
+        padding: 2px;
+    }
+}
+
+a {
+    box-shadow: inset 0 0 0 0 #54b3d6;
+    color: #54b3d6;
+    margin: 0 -.25rem;
+    padding: 0 .25rem;
+    transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
+}
+
+a:hover {
+    box-shadow: inset 200px 0 0 0 #54b3d6;
+    color: white;
+}
+
+.thumb-wrapper {
+    margin: 15px;
+    text-align: center;
+}
+
+.thumb-content {
+    margin-top: 10px;
+}
